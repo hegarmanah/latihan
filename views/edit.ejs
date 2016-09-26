@@ -1,0 +1,39 @@
+<form method="POST" action="/user/<%= users.id %>">
+       <table>
+               <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td>
+                        <input type="hidden" name="_method" value="PUT" />
+                        <input type="text" name="nama" value="<%= users.nama %>" />
+                    </td>
+               </tr>
+               <tr>
+                    <td>Mobile</td>
+                    <td>:</td>
+                    <td><input type="text" name="mobil" value="<%= users.mobil %>" /></td>
+               </tr>
+               <tr>
+                    <td colspan="2"></td>
+                    <td><input type="submit" value="Submit" /></td>
+               </tr>
+       </table>
+</form>
+<h1>
+       <table>
+               <tr>
+                    <td>No</td>
+                    <td>Name</td>
+                    <td>Mobile</td>
+                    <td>Configuration</td>
+               </tr>
+               <% for(var i=0; i<users.length; i++) {%>
+                  <tr>
+                    <td><%= i+1 %></td>
+                    <td><%= users[i].nama %></td>
+                    <td><%= users[i].mobil %></td>
+                    <td><a href="/user/<%= users[i].id %>">Edit</a><a href="/user/delete/<%= users[i].id %>">Delete</a></td>
+               <% } %>
+               </ul>
+       </table>
+</h1>
